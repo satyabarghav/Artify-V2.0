@@ -242,7 +242,7 @@ export default function ListItems() {
                       <SelectItem value="painting">Painting</SelectItem>
                       <SelectItem value="photography">Photography</SelectItem>
                       <SelectItem value="sculpture">Sculpture</SelectItem>
-                      <SelectItem value="drawings">Drawings</SelectItem>
+                      <SelectItem value="drawing">Drawings</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

@@ -8,6 +8,7 @@ import Shop from './Pages/Product/Shop.jsx'
 import ListItems from './Pages/User/ListItems'
 import Profile from './Pages/User/Profile.jsx'
 import Verified from './Pages/verified'
+import ViewUsers from './Pages/Admin/viewUsers'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: '/:userId/verify/:token',
     element: <Verified/>
+  },
+  {
+    path: '/admin/viewusers',
+    element: <ViewUsers/>
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(

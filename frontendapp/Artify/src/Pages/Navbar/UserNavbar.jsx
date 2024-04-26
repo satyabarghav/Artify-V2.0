@@ -2,13 +2,11 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import logo from "@/assets/Artify.png";
-import { Link } from "react-router-dom";
 import ShopNav from "@/Pages/Navbar/ShopNav";
 import PaintingsNav from "@/Pages/Navbar/PaintingsNav";
 import PhotographyNav from "@/Pages/Navbar/PhotographyNav";
 import DrawingsNav from "@/Pages/Navbar/DrawingsNav";
 import SculpturesNav from "@/Pages/Navbar/SculpturesNav";
-import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProfileAvatar } from "../User/ProfileAvatar";
 import {
@@ -91,8 +89,14 @@ export default function UserNavbar() {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Profile</DropdownMenuItem>
                 <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Switch to Seller</DropdownMenuItem>
-                <DropdownMenuItem>Subscription</DropdownMenuItem>
+                <DropdownMenuItem >Switch to Seller</DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => {
+                    localStorage.removeItem("user");
+                  }}
+                >
+                  Logout
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>

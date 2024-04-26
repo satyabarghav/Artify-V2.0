@@ -36,6 +36,7 @@ export default function Component() {
         localStorage.setItem("user", JSON.stringify(response.data));
         setEmail("");
         setPassword("");
+        localStorage.setItem("userRole","buyer")
         setTimeout(() => {
           navigate("/shop");
         }, 3000);
