@@ -26,7 +26,7 @@ export default function ListItems() {
     painting: ["Fine Art", "Abstract", "Oil Paint"],
     photography: ["Potrait", "Landscape", "Street Photography"],
     sculpture: ["Classical", "Contemporary", "Abstract"],
-    drawings: ["Realistic", "Sketches", "Illustrations"],
+    drawing: ["Realistic", "Sketches", "Illustrations"],
   };
 
   const handleCategoryChange = (value) => {
