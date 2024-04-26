@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const ProductSchema = new mongoose.Schema({
     name: {
@@ -22,9 +23,9 @@ const ProductSchema = new mongoose.Schema({
         required: true,
         enum: ["painting","sculpture","photography"]
     },
-    username: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
         required: true,
       },
     

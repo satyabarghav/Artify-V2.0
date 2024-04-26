@@ -9,7 +9,7 @@ export default function ListItems() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState(null);
-  const [username, SetUsername] = useState("");
+  const [userEmail,setUserEmail] = useState("");
   const handleImageChange = (event) => {
     setImage(event.target.files[0]);
   };
@@ -25,7 +25,7 @@ export default function ListItems() {
   };
   const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
-  SetUsername(user._id);
+    setUserEmail(user.email);
   }, []);
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
@@ -38,7 +38,8 @@ export default function ListItems() {
       formData.append("image", image); // Include the file object here
       formData.append("description", description);
       formData.append("category", category);
-      formData.append("username", username);
+      formData.append("email", userEmail);
+      console.log(userEmail)
       // Send the form data to the server using Axios
       const response = await axios.post(
         "http://localhost:2014/listItems",
@@ -61,6 +62,8 @@ export default function ListItems() {
         const imagePreview = document.getElementById("imagePreview");
         imagePreview.src = "";
         imagePreview.classList.remove("hidden");
+        const fileInput = document.getElementById("fileInput");
+        fileInput.value = null;
       } else if (response.status === 400) {
         toast.error("Bad request");
       } else if (response.status === 500) {

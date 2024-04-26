@@ -1,7 +1,9 @@
 const Product = require('../models/Product');
+const User = require('../models/User');
 const multer = require('multer');
 const path = require('path');
 const uploadImage = require('../upload');
+const { default: mongoose } = require('mongoose');
 const fs = require('fs').promises;
 
 // Set up Multer storage
@@ -31,8 +33,12 @@ const listItems = async (req, res) => {
                 return res.status(400).json({ message: 'No file uploaded' });
             }
 
-            const { name, price, description, category,username } = req.body;
-            console.log(username)
+            const { name, price, description, category} = req.body;
+            const email = req.body.email;
+            console.log(req.body)
+            console.log(email);
+            const user = await User.findOne({ email:email });
+
             const imageUrlInCloud = await uploadImage(req.file.path,'Artify',req.file.name); // Path of the uploaded image
 
             const product = await new Product({
@@ -41,7 +47,7 @@ const listItems = async (req, res) => {
                 image: imageUrlInCloud,
                 description: description,
                 category: category,
-                username: username
+                user: user._id
             }).save();
             await fs.unlink(req.file.path);
             

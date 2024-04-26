@@ -27,11 +27,7 @@ const register = async (req, res) => {
       `Please click on the link to verify your account: ${url}`
     );
 
-    res
-      .status(201)
-      .send(
-        "Account created successfully. An email is Sent to your account for verification."
-      );
+    res.status(201).send("Registered Successfully");
   } catch (error) {
     res.status(400).send(error);
   }
@@ -67,6 +63,7 @@ const verify = async (req, res) => {
       userId: req.params.userId,
       token: req.params.token,
     });
+    console.log(req.params.userId);
     if (!token) {
       return res.status(404).send("Invalid token");
     }

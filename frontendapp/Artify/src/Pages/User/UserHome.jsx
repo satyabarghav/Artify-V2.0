@@ -6,8 +6,8 @@ import SellerNavbar from "../Navbar/SellerNav";
 export default function UserHome() {
   return (
     <div>
-      {/* <Navbar /> */}
-      <UserNavbar/>
+      <Navbar />
+      {/* <UserNavbar/> */}
       {/* <SellerNavbar/> */}
       <Hero />
       <Footer />
