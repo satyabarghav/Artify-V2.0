@@ -34,7 +34,7 @@ export default function PaintingsNav() {
                     backgroundPosition: "center",
                     
                   }}
-                  href="/"
+                  href="/shop/paintings"
                 >
                 </a>
               </NavigationMenuLink>

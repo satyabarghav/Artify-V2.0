@@ -33,7 +33,7 @@ export default function DrawingsNav() {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
-                  href="/"
+                  href="/shop/drawings"
                 ></a>
               </NavigationMenuLink>
             </li>

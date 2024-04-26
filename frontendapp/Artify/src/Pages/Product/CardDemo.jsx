@@ -15,16 +15,19 @@ export default function CardDemo(props) {
             alt="Product"
             className="aspect-[4/5] object-cover border w-full"
             height="500"
-            src="https://images.unsplash.com/photo-1706169599121-4182eb12fbef?q=80&w=2061&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src={props.image}
             width="400"
           />
         </div>
         <div className="grid gap-1.5">
           <h3 className="font-semibold text-sm md:text-base">
-            {props.title}
+            {props.name}
+          </h3>
+          <h3 className="font-serif text-sm text-gray-600 md:text-base">
+            {props.artist}
           </h3>
           <p className="font-semibold text-sm md:text-base">{props.price}</p>
-          <p className="text-sm md:text-base text-muted">
+          <p className="text-sm md:text-base overflow-hidden">
             {props.description}
           </p>
         </div>
@@ -35,8 +38,10 @@ export default function CardDemo(props) {
 }
 
 CardDemo.propTypes = {
-    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    artist: PropTypes.string.isRequired,
 };
 

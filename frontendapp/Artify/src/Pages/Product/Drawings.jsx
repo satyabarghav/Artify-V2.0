@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from "@/Pages/Navbar/Navbar";
 import UserNavbar from "../Navbar/UserNavbar";
 import Footer from "../Footer/footer";
@@ -46,7 +46,7 @@ export default function Shop() {
       {renderNavbar()}
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-          {productData.map((product) => (
+          {productData.filter(product => product.category === 'drawing').map((product) => (
             <CardDemo
               key={product._id} 
               name={product.name}
@@ -62,4 +62,3 @@ export default function Shop() {
     </div>
   );
 }
-

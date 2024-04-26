@@ -9,6 +9,10 @@ import ListItems from './Pages/User/ListItems'
 import Profile from './Pages/User/Profile.jsx'
 import Verified from './Pages/verified'
 import ViewUsers from './Pages/Admin/viewUsers'
+import Paintings from './Pages/Product/Paintings.jsx'
+import Sculptures from './Pages/Product/Sculptures.jsx'
+import Photos from './Pages/Product/Photos.jsx'
+import Drawings from './Pages/Product/Drawings.jsx'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 const router = createBrowserRouter([
   {
@@ -43,6 +47,22 @@ const router = createBrowserRouter([
   {
     path: '/admin/viewusers',
     element: <ViewUsers/>
+  },
+  {
+    path:'/shop/paintings',
+    element: <Paintings/>
+  },
+  {
+    path:'/shop/sculptures',
+    element: <Sculptures/>
+  },
+  {
+    path:'/shop/photography',
+    element: <Photos/>
+  },
+  {
+    path:'/shop/drawings',
+    element: <Drawings/>
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(

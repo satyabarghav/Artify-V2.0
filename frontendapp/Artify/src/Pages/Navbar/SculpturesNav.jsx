@@ -33,7 +33,7 @@ export default function SculpturesNav() {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
-                  href="/"
+                  href="/shop/sculptures"
                 ></a>
               </NavigationMenuLink>
             </li>

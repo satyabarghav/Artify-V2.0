@@ -33,7 +33,7 @@ export default function PhotographyNav() {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
-                  href="/"
+                  href="/shop/photography"
                 ></a>
               </NavigationMenuLink>
             </li>
