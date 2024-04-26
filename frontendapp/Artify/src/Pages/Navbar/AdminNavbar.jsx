@@ -4,12 +4,6 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import logo from "@/assets/Artify.png";
 import { Link } from "react-router-dom";
 import ShopNav from "@/Pages/Navbar/ShopNav";
-import PaintingsNav from "@/Pages/Navbar/PaintingsNav";
-import PhotographyNav from "@/Pages/Navbar/PhotographyNav";
-import DrawingsNav from "@/Pages/Navbar/DrawingsNav";
-import SculpturesNav from "@/Pages/Navbar/SculpturesNav";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProfileAvatar } from "../User/ProfileAvatar";
 import {
   DropdownMenu,
@@ -25,8 +19,10 @@ const navigation = [
   { name: "Shop", href: "/shop" },
   { name: "View Users", href: "/admin/viewusers" },
 ];
+
 export default function AdminNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div>
       <header className=" inset-x-0 top-0 z-50">
@@ -62,19 +58,22 @@ export default function AdminNavbar() {
             ))}
           </div>
           <div className="hidden gap-3 lg:flex lg:flex-1 lg:justify-end">
-            {/* <Link
-              to="/login"
-              className="text-md px-4 font-semibold leading-6 text-gray-900"
-            > */}
-            {/* <Link to="/login">
-              <Button>Login</Button>
-            </Link> */}
-
-            {/* Log in <span aria-hidden="true">&rarr;</span>
-            </Link> */}
-            {/* <Link to="/register">
-              <Button>Sign Up</Button>
-            </Link> */}
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <ProfileAvatar src="https://github.com/shadcn.png" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  onClick={() => {
+                    localStorage.removeItem("user");
+                  }}
+                >
+                  Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </nav>
         <Dialog
@@ -102,30 +101,9 @@ export default function AdminNavbar() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-                  {/* {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className="text-md font-semibold leading-6 text-gray-900"
-                    >
-                      {item.name}
-                    </Link>
-                  ))} */}
                   <ShopNav />
                 </div>
                 <div className="py-6">
-                  {/* <Link
-                    to="/login"
-                    className="text-md font-semibold leading-6 text-gray-900"
-                  >
-                    Log in <span aria-hidden="true">&rarr;</span>
-                  </Link>
-                  <Link
-                    to="/signup"
-                    className="text-md font-semibold leading-6 text-gray-900"
-                  >
-                    Sign Up <span aria-hidden="true">&rarr;</span>
-                  </Link> */}
                   <DropdownMenu>
                     <DropdownMenuTrigger>
                       <ProfileAvatar src="https://github.com/shadcn.png" />

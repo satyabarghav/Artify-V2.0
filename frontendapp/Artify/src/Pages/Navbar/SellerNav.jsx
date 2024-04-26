@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import logo from "@/assets/Artify.png";
-import { Link } from "react-router-dom";
 import ShopNav from "@/Pages/Navbar/ShopNav";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProfileAvatar } from "../User/ProfileAvatar";
@@ -15,13 +14,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Shop", href: "/shop" },
-  { name: "Sell Art", href: "/listitem" },
-];
 export default function SellerNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const switchToBuyer = () => {
+    // Set user role to buyer in localStorage
+    localStorage.setItem("userRole", "buyer");
+    // Optionally, reload the page to reflect the changes
+    window.location.reload();
+  };
+
   return (
     <div>
       <header className=" inset-x-0 top-0 z-50">
@@ -46,30 +48,9 @@ export default function SellerNavbar() {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="text-md font-semibold leading-6 text-gray-900"
-              >
-                {item.name}
-              </Link>
-            ))}
+            <ShopNav />
           </div>
           <div className="hidden gap-3 lg:flex lg:flex-1 lg:justify-end">
-            {/* <Link
-              to="/login"
-              className="text-md px-4 font-semibold leading-6 text-gray-900"
-            > */}
-            {/* <Link to="/login">
-              <Button>Login</Button>
-            </Link> */}
-
-            {/* Log in <span aria-hidden="true">&rarr;</span>
-            </Link> */}
-            {/* <Link to="/register">
-              <Button>Sign Up</Button>
-            </Link> */}
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <ProfileAvatar src="https://github.com/shadcn.png" />
@@ -78,11 +59,12 @@ export default function SellerNavbar() {
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Switch to Buyer</DropdownMenuItem>
+                <DropdownMenuItem onClick={switchToBuyer}>Switch to Buyer</DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() => {
                     localStorage.removeItem("user");
+                    localStorage.setItem("userRole", "guest");
+                    window.location.reload();
                   }}
                 >
                   Logout
@@ -116,30 +98,9 @@ export default function SellerNavbar() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-                  {/* {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className="text-md font-semibold leading-6 text-gray-900"
-                    >
-                      {item.name}
-                    </Link>
-                  ))} */}
                   <ShopNav />
                 </div>
                 <div className="py-6">
-                  {/* <Link
-                    to="/login"
-                    className="text-md font-semibold leading-6 text-gray-900"
-                  >
-                    Log in <span aria-hidden="true">&rarr;</span>
-                  </Link>
-                  <Link
-                    to="/signup"
-                    className="text-md font-semibold leading-6 text-gray-900"
-                  >
-                    Sign Up <span aria-hidden="true">&rarr;</span>
-                  </Link> */}
                   <Avatar>
                     <AvatarImage src="https://github.com/shadcn.png" />
                     <AvatarFallback>CN</AvatarFallback>
