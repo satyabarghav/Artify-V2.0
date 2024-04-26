@@ -18,6 +18,10 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  artist: {
+    type: String,
+    required: true,
+  },
   category: {
     type: String,
     required: true,
