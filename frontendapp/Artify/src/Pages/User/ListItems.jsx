@@ -23,9 +23,10 @@ export default function ListItems() {
   const [subcategories, setSubcategories] = useState([]);
 
   const categories = {
-    painting: ["Abstract", "Portrait", "Landscape"],
-    photography: ["Nature", "Urban", "Portrait"],
-    sculpture: ["Stone", "Metal", "Wood"],
+    painting: ["Fine Art","Abstract","Oil Paint"],
+    photography: ["Potrait", "Landscape", "Street Photography"],
+    sculpture: ["Classical", "Contemporary", "Abstract"],
+    drawings:["Realistic","Sketches","Illustrations"]
   };
 
   const handleCategoryChange = (value) => {
@@ -220,6 +221,7 @@ export default function ListItems() {
                       <SelectItem value="painting">Painting</SelectItem>
                       <SelectItem value="photography">Photography</SelectItem>
                       <SelectItem value="sculpture">Sculpture</SelectItem>
+                      <SelectItem value="drawings">Drawings</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
