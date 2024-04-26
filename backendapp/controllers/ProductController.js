@@ -33,7 +33,7 @@ const listItems = async (req, res) => {
                 return res.status(400).json({ message: 'No file uploaded' });
             }
 
-            const { name, price, description, category} = req.body;
+            const { name, price, description, category,subcategory} = req.body;
             const email = req.body.email;
             console.log(req.body)
             console.log(email);
@@ -47,7 +47,9 @@ const listItems = async (req, res) => {
                 image: imageUrlInCloud,
                 description: description,
                 category: category,
+                subcategory:subcategory,
                 user: user._id
+
             }).save();
             await fs.unlink(req.file.path);
             
