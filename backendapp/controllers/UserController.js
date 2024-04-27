@@ -3,7 +3,6 @@ const Token = require("../models/Token");
 const sendEmail = require("../mailer");
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
-const Cart = require("../models/Cart");
 require("dotenv").config();
 
 const register = async (req, res) => {
@@ -27,10 +26,6 @@ const register = async (req, res) => {
       "Account Verification",
       `Please click on the link to verify your account: ${url}`
     );
-    const cart = new Cart({
-      user: user._id,
-    });
-    await cart.save();
     res.status(201).send("Registered Successfully");
   } catch (error) {
     res.status(400).send(error);
