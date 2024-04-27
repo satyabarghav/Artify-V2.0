@@ -26,7 +26,7 @@ app.use("", userRouter);
 app.use("", productRouter);
 // app.use("", adminRouter);
 
-const port = 2014||2069;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running at port ${port}`);
 });
