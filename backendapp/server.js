@@ -1,9 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
-
-const dburl = "mongodb://localhost:27017/sdpproject19"
+const dburl = process.env.DB_URL;
 mongoose
   .connect(dburl)
   .then(() => {
@@ -26,7 +26,7 @@ app.use("", userRouter);
 app.use("", productRouter);
 // app.use("", adminRouter);
 
-const port = 2014;
+const port = 2014||2069;
 app.listen(port, () => {
   console.log(`Server is running at port ${port}`);
 });
